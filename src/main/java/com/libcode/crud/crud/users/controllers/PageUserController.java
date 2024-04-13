@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.libcode.crud.crud.users.entities.User;
 import com.libcode.crud.crud.users.repository.UserRepository;
-import com.libcode.crud.crud.users.repository.user;
+
 
 
 
@@ -42,15 +42,15 @@ public class PageUserController {
     }@GetMapping("/editar/{id}")
     public String formularioEditarUser(Model model, @PathVariable Long id){
         User usuario = userRepository.findById(id).get();
-        model.addAttribute("usuario", usuario );
+        model.addAttribute("usuario", usuario);
         return "form-user";
     }
     @GetMapping("/eliminar/{id}")
-    public String eliminarUser(Model model, @PathVariable Long id){
-        userRepository.delete(new user(id));
-        User usuario = userRepository.findById(id).get();
-        return "redirect:/usuarios";
+    public String eliminarUser(@PathVariable Long id) {
+        userRepository.delete(new User(id));
+        return "redirect:/users";
     }
+    
 
     
 
