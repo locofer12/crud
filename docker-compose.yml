@@ -1,4 +1,4 @@
-version: '3.9'
+version: "3.9"
 services:
   java_app:
     container_name: java_app
@@ -10,11 +10,11 @@ services:
       - java_db  
   java_db:
     container_name: java_db
-    image: postgres:latest
+    image: mariadb:latest
     ports:
-      - 5439:5432
+      - 3306:3306
     environment:
-      POSTGRES_USER: postgres  
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DBR: postgres
+      MYSQL_ROOT_PASSWORD: mariadb
+      MYSQL_DATABASE: mariadb
+      MYSQL_PASSWORD: mariadb
 

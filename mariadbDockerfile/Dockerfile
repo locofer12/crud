@@ -1,0 +1,6 @@
+FROM mariadb
+
+ENV MYSQL_ROOT_PASSWORD=mariadb
+ENV MYSQL_DATABASE=mariadb
+ENV MYSQL_USER=mariadb
+ENV MYSQL_PASSWORD=mariadb
