@@ -1,35 +1,40 @@
-#PASOS PARA EJECUTAR CRUD EN MARIADB
+# PASOS PARA EJECUTAR CRUD EN MARIADB
 
-##Eliminar contenedores e imagenes previas
+## Eliminar contenedores e imagenes previas
 docker system prune -a -f
 
-##Descargar archivo java_mariadb.zip
-url del repositorio
+## Vera que hay un archivo llamado mariadbDockerfile que contiene el archivo dockerfile para la base de datos mariadb, se hace para correr en local
 
-##Descomprimir archivo
 
-##Ejecutar comando
+## Ejecutar comando
 mvn clean package -DskipTest
 
-##Ejecutar comando para crear contenedor mariadb , lo corremos en el puerto 3309:3306
+## Ejecutar comando para crear contenedor mariadb , lo corremos en el puerto 3309:3306
 docker run --name mariadb -eMYSQL_ROOT_PASSWORD=mariadb -e MYSQL_DATABASE=mariadb -e MYSQL_USER=mariadb -e MYSQL_PASSWORD=mariadb -p 3309:3306 -d mariadb:latest
 
-##Ejecutar y depurar aplicacion CrudApplication
 
-##Eliminar imágenes no utilizadas
+## Ejecutar y depurar aplicacion CrudApplication
+
+## Eliminar imágenes no utilizadas
 docker image prune -a
 
-##Revisar crud en la web
+## Revisar crud en la web
 localhost:8080/users
 
-##Detener contenedor mariadb
+## Detener contenedor mariadb para poder correr la app en container
 docker stop mariadb
 
-##Dockerizar aplicacion
+## Dockerizar aplicacion
 docker-compose up -d
 
-##Revisar crud en la web
+## Revisar crud en la web 
 localhost:8080/users
+
+## (OPCIONAL)
+## Si hubieran problemas y desea bajar el container directo de dockerhub puede hacerlo con
+docker pull locofer12/crud-java
+docker run -d -p 8080:8080 locofer12/crud-java
+
 
 #INTEGRANTES
 
