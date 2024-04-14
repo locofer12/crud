@@ -1,4 +1,4 @@
-version: "3.9"
+version: '3.9'
 services:
   java_app:
     container_name: java_app
@@ -8,13 +8,18 @@ services:
       - 8080:8080
     depends_on: 
       - java_db  
+    environment:
+    
+    #aca definimos una variable de entorno java_db para 
+    #que en el application.properties ..logremos escoger 
+      - java_db=jdbc:mariadb://java_db:3306/mariadb
+
   java_db:
     container_name: java_db
     image: mariadb:latest
     ports:
-      - 3306:3306
+      - 3309:3306
     environment:
       MYSQL_ROOT_PASSWORD: mariadb
       MYSQL_DATABASE: mariadb
       MYSQL_PASSWORD: mariadb
-
